@@ -125,7 +125,7 @@ class S_Account extends Account
   static int s_trans_total = 0;
 
   S_Account(){
-      s_trans_total = s_trans_total + total_trans;
+      s_trans_total = s_trans_total + this.total_trans;
   }
 
   void info()
@@ -134,10 +134,10 @@ class S_Account extends Account
   }
   void display()
   {
-    System.out.println("\nCustomer Name : "+super.cust_name);
-    System.out.println("\nAccount Number : "+super.acc_no);
-    System.out.println("\nAccount Type : "+super.acc_type);
-    System.out.println("\nAccount Balance : "+super.acc_bal);
+    System.out.println("\nCustomer Name : "+this.cust_name);
+    System.out.println("\nAccount Number : "+this.acc_no);
+    System.out.println("\nAccount Type : "+this.acc_type);
+    System.out.println("\nAccount Balance : "+this.acc_bal);
     System.out.println("\nTotal Transaction : "+this.s_trans_total);
   }
 
@@ -148,7 +148,7 @@ class C_Account extends Account
   static int c_trans_total = 0;
 
   C_Account(){
-      c_trans_total = c_trans_total + total_trans;
+      c_trans_total = c_trans_total + this.total_trans;
   }
 
   void info()
@@ -157,10 +157,10 @@ class C_Account extends Account
   }
   void display()
   {
-    System.out.println("\nCustomer Name : "+super.cust_name);
-    System.out.println("\nAccount Number : "+super.acc_no);
-    System.out.println("\nAccount Type : "+super.acc_type);
-    System.out.println("\nAccount Balance : "+super.acc_bal);
+    System.out.println("\nCustomer Name : "+this.cust_name);
+    System.out.println("\nAccount Number : "+this.acc_no);
+    System.out.println("\nAccount Type : "+this.acc_type);
+    System.out.println("\nAccount Balance : "+this.acc_bal);
     System.out.println("\nTotal Transaction : "+this.c_trans_total);
   }
 }
@@ -172,7 +172,7 @@ class BankMain
     Account ob1;
     S_Account ob2 = new S_Account();
     C_Account ob3 = new C_Account();
-
+/*
     ob2.run();
 
     if(ob2.acc_type.equals('S') || ob2.acc_type.equals('s'))
@@ -181,6 +181,23 @@ class BankMain
     }
     else
     {
+      ob3.display();
+    }
+*/
+    int choice;
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("1.Saving Account\n2.Current Account\nChoice : ");
+    choice = sc.nextInt();
+
+    if(choice == 1)
+    {
+      ob2.run();
+      ob2.display();
+    }
+    else
+    {
+      ob3.run();
       ob3.display();
     }
   }
