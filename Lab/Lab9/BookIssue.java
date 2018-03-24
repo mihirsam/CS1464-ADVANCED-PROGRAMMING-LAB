@@ -14,6 +14,7 @@ class Library
     }
     count++;
     count = Issue(name, count);
+    System.out.println("Done!");
     return count;
 
   }
@@ -33,6 +34,7 @@ class Library
     System.out.println("\t\t\t\t"+name+" Has Returned The Book");
 
     count++;
+    System.out.println("Done!");
     return count;
   }
 }
@@ -53,7 +55,7 @@ class Manager implements Runnable
     count = c;
     count--;
     t.start();
-    System.out.println("Start End!");
+    //System.out.println("Start End!");
     return count;
   }
 
