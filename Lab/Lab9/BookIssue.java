@@ -14,7 +14,7 @@ class Library
     }
     count++;
     count = Issue(name, count);
-    System.out.println("Done!");
+    //System.out.println("Done!");
     return count;
 
   }
@@ -34,7 +34,7 @@ class Library
     System.out.println("\t\t\t\t"+name+" Has Returned The Book");
 
     count++;
-    System.out.println("Done!");
+    //System.out.println("Done!");
     return count;
   }
 }
@@ -59,9 +59,9 @@ class Manager implements Runnable
     return count;
   }
 
-  public void run()
+  synchronized public void run()
   {
-    if(count > 0)
+    if(count >= 0)
     {
       count = target.Issue(msg, count);
     }
@@ -76,19 +76,19 @@ class BookIssue
 {
   public static void main(String args[])
   {
-    int count = 20, choice, j=0;
+    int count = 5, choice, j=0;
     Library target = new Library();
-    Manager arr[] = new Manager[20];
+    Manager arr[] = new Manager[5];
     Scanner sc = new Scanner(System.in);
 
-    for(int i=0;i<20;i++)
+    for(int i=0;i<5;i++)
     {
       arr[i] = new Manager();
     }
 
     while(true)
     {
-      if(j == 20)
+      if(j == 5)
       {
         j = 0;
       }
