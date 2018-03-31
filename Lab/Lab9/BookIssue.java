@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Library
 {
-  int Wait(String name, int count)
+  synchronized int Wait(String name, int count)
   {
     System.out.println("\t\t\t"+name+" Is In Waiting List");
     try
@@ -19,7 +19,7 @@ class Library
 
   }
 
-  int Issue(String name, int count)
+  synchronized int Issue(String name, int count)
   {
     System.out.println("\t\t\t"+name+" Has Issued The Book");
 
@@ -78,17 +78,17 @@ class BookIssue
   {
     int count = 5, choice, j=0;
     Library target = new Library();
-    Manager arr[] = new Manager[5];
+    Manager arr[] = new Manager[50];
     Scanner sc = new Scanner(System.in);
 
-    for(int i=0;i<5;i++)
+    for(int i=0;i<50;i++)
     {
       arr[i] = new Manager();
     }
 
     while(true)
     {
-      if(j == 5)
+      if(j == 50)
       {
         j = 0;
       }
@@ -101,6 +101,7 @@ class BookIssue
       {
         System.out.print("\nEnter The Name : ");
         arr[j].name = sc.next();
+        if(choice == 1)
         count = arr[j].Input(target, arr[j].name, count);
         j++;
       }
