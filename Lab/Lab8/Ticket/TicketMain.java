@@ -6,7 +6,7 @@ class Book extends Thread
   int age, t_no, status;
   Scanner sc = new Scanner(System.in);
 
-  synchronized public void run()
+  public synchronized void run()
   {
     System.out.print("\n\n\nEnter the Name : ");
     name = sc.next();
@@ -50,7 +50,7 @@ class TicketMain
     for(i=0;i<3;i++)
     {
       arr[i] = new Book();
-      arr[i].run();
+      arr[i].start();
       seat = arr[i].check(seat);
     }
 
