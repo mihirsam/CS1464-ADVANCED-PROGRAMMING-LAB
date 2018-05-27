@@ -11,13 +11,20 @@ class calcMain
     input = sc.next();
 
     int numArray[] = new int[input.length()];
-    int flag1, flag2, arrayFlag = 0;
+    int symArray[] = new int[input.length()];
+    int flag1, flag2, numFlag = 0, symFlag = 0;
 
     for(int i=0; i<=input.length(); i++)
     {
       if(a[i] == "+" || a[i] == "-" || a[i] == "*" || a[i] == "/")
       {
-        numArray[arrayFlag] = parse.Int(a[i])
+        symArray[symFlag] = a[i];
+        symFlag++;
+      }
+      else
+      {
+        numArray[numFlag] = parse.Int(a[i])
+        numFlag++;
       }
     }
     System.out.println("Input : "+input+"\nLength : "+input.length());
